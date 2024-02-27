@@ -1,6 +1,7 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: #e0dada;
+  background: #193626;
+  margin-bottom: 24px;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -13,4 +14,11 @@
 .brand-title {
   font-size: 20px;
   vertical-align: middle;
+  color: white;
+}
+.nav-link {
+  color: rgb(255, 255, 255);
+  &:hover {
+    color: rgb(255, 255, 255);
+  }
 }
