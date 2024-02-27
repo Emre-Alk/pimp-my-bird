@@ -1,5 +1,5 @@
 class BirdsController < ApplicationController
-  before_action :set_bird, only: [:show, :update, :destroy]
+  # before_action :set_bird, only: [:show, :update, :destroy]
 
   def index
     @bird = Bird.all
@@ -18,15 +18,15 @@ class BirdsController < ApplicationController
     end
   end
 
-  def update
-    @bird.update(bird_params)
-    redirect_to bird_path(@bird)
-  end
+  # def update
+  #   @bird.update(bird_params)
+  #   redirect_to bird_path(@bird)
+  # end
 
-  def destroy
-    @bird.destroy
-    redirect_to birds_path, status: :see_other
-  end
+  # def destroy
+  #   @bird.destroy
+  #   redirect_to birds_path, status: :see_other
+  # end
 
 private
 
