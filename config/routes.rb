@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   root to: "birds#index"
 
+  devise_for :users
 
   resources :birds do
     resources :bookings, only: %i[new create]
