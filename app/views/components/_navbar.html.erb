@@ -1,9 +1,11 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-    <%= link_to "#", class: "navbar-brand" do %>
-      <%= image_tag "https://pbs.twimg.com/profile_images/1740396855266086912/hHG0IxKC_400x400.jpg" %>
-      <span class="brand-title">Pimp My Bird</span>
-    <% end %>
+    <div>
+      <%= link_to root_path, class: "navbar-brand" do %>
+        <%= image_tag "birdy.png" %>
+      <% end %>
+      <span class="brand-title"><strong>Pimp My Bird</strong></span>
+    </div>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -11,7 +13,8 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
-        <%# if user_signed_in? %>
+
+        <% if user_signed_in? %>
           <li class="nav-item">
             <%= link_to "Home", root_path, class: "nav-link" %>
           </li>
@@ -21,17 +24,20 @@
           <li class="nav-item dropdown">
             <%= image_tag "https://xsgames.co/randomusers/assets/images/favicon.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "My profile", "#", class: "dropdown-item" %>
-              <%= link_to "My Bookings", "#", class: "dropdown-item" %>
-              <%= link_to "Log out", "#", class: "dropdown-item", data: {turbo_method: :delete} %>
+              <%= link_to "My profile", user_path(current_user), class: "dropdown-item" %>
+              <%= link_to "My Bookings", user_bookings_path(current_user), class: "dropdown-item" %>
+              <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
               <%# <%= link_to "Action", "#", class: "dropdown-item" %>
             </div>
           </li>
-        <%# else %>
-          <!--li class="nav-item"-->
-            <%#= link_to "Login", new_user_session_path, class: "nav-link" %>
-          <!--/li-->
-        <%# end %>
+        <% else %>
+        <li class="nav-item">
+            <%= link_to "Home", root_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+          </li>
+        <% end %>
       </ul>
     </div>
   </div>
