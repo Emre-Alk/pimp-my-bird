@@ -4,6 +4,8 @@ class BirdsController < ApplicationController
   end
 
   def show
+    @bird = Bird.find(params[:id])
+    @booking = Booking.new
   end
 
   def new
