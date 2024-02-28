@@ -12,6 +12,8 @@
 
 require 'faker'
 
+Booking.destroy_all
+User.destroy_all
 Bird.destroy_all
 puts "Destroy all birds"
 
@@ -19,12 +21,24 @@ puts "Destroy all birds"
   faker_bird = Faker::Creature::Bird
   first_name = Faker::Name.first_name
   url_id = Random.rand(10..40)
+
+  user_email = Faker::Internet.email(domain: 'gmail.com')
+  user_password = Faker::Internet.password(min_length: 8)
+
+  user = User.new(
+    email: user_email,
+    password: user_password
+  )
+  user.save!
+  puts "#{user.email} - #{user.password} created !"
+
   bird = Bird.new(
     chant_url: "https://xeno-canto.org/8398#{url_id}/embed?simple=1",
     name: first_name,
     common_family: faker_bird.common_name,
     geography: faker_bird.geo
   )
+  bird.user = user
   bird.save!
   puts "#{bird.name} created !"
 end
