@@ -1,39 +1,24 @@
-<div class="d-flex flex-row">
 
-  <div class="info-container">
 
-    <div class="row">
-      <div class="col-10">
-        <h1><%= @bird.name %></h1>
-        <img width="250px" src="https://source.unsplash.com/random/?bird/" alt="bird">
+<div class="container">
+  <h1><%= @bird.name %></h1>
+  <div class="row">
+    <div class="col">
+      <div class="card" style="width: 600px">
+        <img style="height: 400px; object-fit: cover;"  src="https://source.unsplash.com/random/?bird/" alt="bird">
+        <div class="card-body">
+          <iframe class="iframe" src=<%= @bird.chant_url %> scrolling='no' frameborder='0' width="400"></iframe>
+          <h3>Family: <%= @bird.common_family %></h3>
+
+          <h3>Origin: <%= @bird.geography%></h3>
+        </div>
       </div>
     </div>
 
-    <div class="row">
-      <div class="col-10">
-        <h2> My Chant </h2>
-        <iframe class="iframe" src=<%= @bird.chant_url %> scrolling='no' frameborder='0' width="200"></iframe>
+    <div class="col">
+      <div>
+        <%= render "bookings/formBooking", bird: @bird, booking: @booking %>
       </div>
     </div>
-
-    <div class="row">
-      <div class="col-10">
-        <h2>My common family</h2>
-        <%= @bird.common_family %>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-10">
-        <h2>My common family</h2>
-        <%= @bird.geography%>
-      </div>
-    </div>
-
   </div>
-
-  <div>
-    <%= render "bookings/formBooking", bird: @bird, booking: @booking %>
-  </div>
-
 </div>
