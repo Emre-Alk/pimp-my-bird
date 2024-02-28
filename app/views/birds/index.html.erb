@@ -8,7 +8,7 @@
           <h5 class="card-title"><%= bird.name %></h5>
           <h6 class="card-subtitle mb-2 text-muted"><%= bird.common_family %></h6>
             <iframe class="iframe" src=<%= bird.chant_url %> scrolling='no' frameborder='0' width="200"></iframe>
-          <%= button_to "Details", bird_path(bird), class:"btn btn-outline-dark" %>
+          <%= link_to "Details", bird_path(bird.id), class:"btn btn-outline-dark" %>
         </div>
       </div>
     </div>
