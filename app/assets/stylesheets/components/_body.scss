@@ -2,4 +2,11 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  // background-image: asset-url("birdy.png");
+  // background-repeat:repeat;
+  // background-position: top;
+  // background-size: 40%;
+}
+body {
+  background-color: #ffffff !important;
 }
