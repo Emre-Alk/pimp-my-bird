@@ -7,3 +7,31 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+# https://xeno-canto.org/839842/embed?simple=1
+
+require 'faker'
+
+Bird.destroy_all
+puts "Destroy all birds"
+
+20.times do
+  faker_bird = Faker::Creature::Bird
+  first_name = Faker::Name.first_name
+  url_id = Random.rand(10..40)
+  bird = Bird.new(
+    chant_url: "https://xeno-canto.org/8398#{url_id}/embed?simple=1",
+    name: first_name,
+    common_family: faker_bird.common_name,
+    geography: faker_bird.geo
+  )
+  bird.save!
+  puts "#{bird.name} created !"
+end
+
+puts "Seed OK !"
+
+# t.string :chant_url
+# t.string :name
+# t.string :common_family
+# t.string :geography

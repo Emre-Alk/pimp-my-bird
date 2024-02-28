@@ -1,8 +1,13 @@
 class BirdsController < ApplicationController
-  # before_action :set_bird, only: [:show, :update, :destroy]
 
+  # before_action :set_bird, only: [:show, :update, :destroy]
   def index
-    @bird = Bird.all
+    @birds = Bird.all
+  end
+
+  def show
+    @bird = Bird.find(params[:id])
+    @booking = Booking.new
   end
 
   def new
