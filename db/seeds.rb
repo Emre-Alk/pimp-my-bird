@@ -12,6 +12,8 @@
 
 require 'faker'
 
+Booking.destroy_all
+User.destroy_all
 Bird.destroy_all
 puts "Destroy all birds"
 
@@ -25,10 +27,10 @@ puts "Destroy all birds"
 
   user = User.new(
     email: user_email,
-    encrypted_password: user_password
+    password: user_password
   )
   user.save!
-  puts "#{user.email} - #{user.encrypted_password} created !"
+  puts "#{user.email} - #{user.password} created !"
 
   bird = Bird.new(
     chant_url: "https://xeno-canto.org/8398#{url_id}/embed?simple=1",
