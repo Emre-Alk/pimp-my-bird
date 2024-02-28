@@ -11,21 +11,17 @@
 # https://xeno-canto.org/839842/embed?simple=1
 
 require 'faker'
-
 Booking.destroy_all
 User.destroy_all
 Bird.destroy_all
 puts "Destroy all birds"
-
 20.times do
   faker_bird = Faker::Creature::Bird
   first_name = Faker::Name.first_name
   url_id = Random.rand(10..40)
-
   user_email = Faker::Internet.email(domain: 'gmail.com')
   user_password = Faker::Internet.password(min_length: 8)
 
-  #### debut
   address = [
     '20 Rue Bellecordière, 69002 Lyon',
     '20 Pl. de la Croix-Rousse, 69004 Lyon',
@@ -50,20 +46,16 @@ puts "Destroy all birds"
     '20 Rue du Bœuf, 69005 Lyon'
   ]
   number = rand(0..20)
-
   user_address = address[number]
   address.slice!(number)
   puts "#{user_address} is created!"
-  ####fin + décommenter address dans instance user ci dessous
-
   user = User.new(
     email: user_email,
     password: user_password,
-    # address: user_address
+    address: user_address
   )
   user.save!
   puts "#{user.email} - #{user.password} - #{user.address} created !"
-
   bird = Bird.new(
     chant_url: "https://xeno-canto.org/8398#{url_id}/embed?simple=1",
     name: first_name,
@@ -74,10 +66,4 @@ puts "Destroy all birds"
   bird.save!
   puts "#{bird.name} created !"
 end
-
 puts "Seed OK !"
-
-# t.string :chant_url
-# t.string :name
-# t.string :common_family
-# t.string :geography

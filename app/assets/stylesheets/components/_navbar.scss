@@ -2,6 +2,12 @@
   justify-content: space-between;
   background: #193626;
   margin-bottom: 24px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  position: sticky !important;
+  z-index: 99;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -17,8 +23,5 @@
   color: white;
 }
 .nav-link {
-  color: rgb(255, 255, 255);
-  &:hover {
-    color: rgb(255, 255, 255);
-  }
+  color: white !important
 }

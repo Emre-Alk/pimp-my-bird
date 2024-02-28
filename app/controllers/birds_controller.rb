@@ -1,8 +1,16 @@
 class BirdsController < ApplicationController
-
   # before_action :set_bird, only: [:show, :update, :destroy]
+
   def index
     @birds = Bird.all
+    @users = User.all
+    @markers = @users.geocoded.map do |user|
+      {
+        lat: user.latitude,
+        lng: user.longitude,
+        marker_html: render_to_string(partial: "marker")
+      }
+    end
   end
 
   def show
