@@ -21,7 +21,7 @@ puts "Destroy all birds"
   url_id = Random.rand(10..40)
   user_email = Faker::Internet.email(domain: 'gmail.com')
   user_password = Faker::Internet.password(min_length: 8)
-  #### debut
+
   address = [
     '20 Rue Bellecordière, 69002 Lyon',
     '20 Pl. de la Croix-Rousse, 69004 Lyon',
