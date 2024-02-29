@@ -1,10 +1,7 @@
 <div class="show-container">
   <div class="row">
-    <h1><%= @bird.name %></h1>
-  </div>
-
-  <div class="row">
     <div class="col">
+    <h1><%= @bird.name %></h1>
       <div class="card" style="width: 600px">
         <div style="background: #051937; background: -webkit-linear-gradient( to right bottom, #051937, #011432, #000f2d, #000728,#000000); background: linear-gradient(to to right bottom, #051937, #011432, #000f2d, #000728,#000000);">
           <%= cl_image_tag @bird.picture.key, :crop=>"fill", :gravity=>"auto", style:"height: 400px; width:100%; object-fit: scale-down; object-position: center;" %>
