@@ -1,8 +1,7 @@
 .bookform {
   width: 460px !important;
   height: fit-content;
-  padding-bottom: 10px;
-  padding-top: 10px;
+  padding: 12px;
   border-radius: 5px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 
@@ -19,4 +18,30 @@
   input {
     width:fit-content;
   }
+}
+.show-container {
+  display: flex;
+  flex-direction: row;
+  max-width: 1400px;
+  align-self: center;
+  gap: 100px;
+  height: fit-content !important;
+  border-radius: 5px;
+  justify-content: space-between !important;
+}
+.right-corner {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.map{
+  height: -webkit-fill-available !important;
+  border-radius: 5px;
+}
+
+.card {
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  border: none !important;
+  border-radius: 5px;
 }
