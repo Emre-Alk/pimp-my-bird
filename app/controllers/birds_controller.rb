@@ -4,13 +4,23 @@ class BirdsController < ApplicationController
   def index
     @birds = Bird.all
     @users = User.all
-    @markers = @users.geocoded.map do |user|
+
+    @markers = @birds.map do |bird|
       {
-        lat: user.latitude,
-        lng: user.longitude,
+        lat: bird.user.latitude,
+        lng: bird.user.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: {bird: bird}),
         marker_html: render_to_string(partial: "marker")
       }
     end
+    # @markers = @users.geocoded.map do |user|
+    #   {
+    #     lat: user.latitude,
+    #     lng: user.longitude,
+    #     info_window_html: render_to_string(partial: "info_window", locals: {user: user}),
+    #     marker_html: render_to_string(partial: "marker")
+    #   }
+    # end
   end
 
   def show
@@ -24,6 +34,7 @@ class BirdsController < ApplicationController
 
   def create
     @bird = Bird.new(bird_params)
+    @bird.user_id = current_user.id
     if @bird.save
       redirect_to bird_path(@bird)
     else

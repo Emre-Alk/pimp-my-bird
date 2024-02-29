@@ -5,7 +5,6 @@ class CreateBirds < ActiveRecord::Migration[7.1]
       t.string :name
       t.string :common_family
       t.string :geography
-
       t.timestamps
     end
   end
