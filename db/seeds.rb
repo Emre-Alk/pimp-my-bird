@@ -61,8 +61,8 @@ puts "Destroy all birds"
     name: first_name,
     common_family: faker_bird.common_name,
     geography: faker_bird.geo,
-    rating: rand(0.0..5.0).round(1),
-    price: rand(10..100).to_i
+    rating: rand(3.0..5.0).round(1),
+    price: rand(10..40).to_i
   )
   bird.user = user
   bird.save!
