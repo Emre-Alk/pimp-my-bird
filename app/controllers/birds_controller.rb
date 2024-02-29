@@ -16,6 +16,7 @@ class BirdsController < ApplicationController
   def show
     @bird = Bird.find(params[:id])
     @booking = Booking.new
+    @marker = [{lat: @bird.user.latitude, lng: @bird.user.longitude, marker_html: render_to_string(partial: "marker")}]
   end
 
   def new
