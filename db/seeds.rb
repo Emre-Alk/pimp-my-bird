@@ -11,9 +11,9 @@
 # https://xeno-canto.org/839842/embed?simple=1
 
 require 'faker'
+Bird.destroy_all
 Booking.destroy_all
 User.destroy_all
-Bird.destroy_all
 puts "Destroy all birds"
 20.times do
   faker_bird = Faker::Creature::Bird
