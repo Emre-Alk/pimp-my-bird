@@ -11,9 +11,9 @@
 # https://xeno-canto.org/839842/embed?simple=1
 
 require 'faker'
+Bird.destroy_all
 Booking.destroy_all
 User.destroy_all
-Bird.destroy_all
 puts "Destroy all birds"
 20.times do
   faker_bird = Faker::Creature::Bird
@@ -60,7 +60,9 @@ puts "Destroy all birds"
     chant_url: "https://xeno-canto.org/8398#{url_id}/embed?simple=1",
     name: first_name,
     common_family: faker_bird.common_name,
-    geography: faker_bird.geo
+    geography: faker_bird.geo,
+    rating: rand(0.0..5.0).round(1),
+    price: rand(10..100).to_i
   )
   bird.user = user
   bird.save!
