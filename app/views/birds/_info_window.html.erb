@@ -1,0 +1,14 @@
+<div class="modal-popup">
+  <div class="container">
+    <div class="row">
+      <div class="col d-flex justify-content-center">
+        <h5><%= bird.name %></h5>
+      </div>
+    </div>
+    <div class="row d-flex">
+      <h6 class="col d-flex align-items-center"><%= bird.common_family %></h6>
+      <%= link_to "Details", bird_path(bird.id), class:"col btn btn-dark" %>
+    </div>
+  </div>
+  </div>
+</div>
