@@ -34,6 +34,7 @@ class BirdsController < ApplicationController
 
   def create
     @bird = Bird.new(bird_params)
+    @bird.user_id = current_user.id
     if @bird.save
       redirect_to bird_path(@bird)
     else

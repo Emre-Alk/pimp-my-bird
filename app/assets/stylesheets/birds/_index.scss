@@ -1,2 +1,12 @@
 @import "new";
 @import "modal";
+
+
+.img-resizing {
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-bottom {
+  margin-bottom: 10px;
+}
