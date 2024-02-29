@@ -59,6 +59,6 @@ private
   end
 
   def bird_params
-    params.require(:bird).permit(:name, :common_family, :geography, :chant_url, :picture)
+    params.require(:bird).permit(:name, :common_family, :geography, :chant_url, :price, :picture)
   end
 end
