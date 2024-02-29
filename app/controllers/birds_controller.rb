@@ -4,13 +4,23 @@ class BirdsController < ApplicationController
   def index
     @birds = Bird.all
     @users = User.all
-    @markers = @users.geocoded.map do |user|
+
+    @markers = @birds.map do |bird|
       {
-        lat: user.latitude,
-        lng: user.longitude,
+        lat: bird.user.latitude,
+        lng: bird.user.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: {bird: bird}),
         marker_html: render_to_string(partial: "marker")
       }
     end
+    # @markers = @users.geocoded.map do |user|
+    #   {
+    #     lat: user.latitude,
+    #     lng: user.longitude,
+    #     info_window_html: render_to_string(partial: "info_window", locals: {user: user}),
+    #     marker_html: render_to_string(partial: "marker")
+    #   }
+    # end
   end
 
   def show
@@ -49,6 +59,6 @@ private
   end
 
   def bird_params
-    params.require(:bird).permit(:name, :common_family, :geography, :chant_url, :price)
+    params.require(:bird).permit(:name, :common_family, :geography, :chant_url, :price, :picture)
   end
 end
