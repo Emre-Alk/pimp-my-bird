@@ -9,7 +9,7 @@
 #   end
 
 # https://xeno-canto.org/839842/embed?simple=1
-
+require 'open-uri'
 require 'faker'
 Bird.destroy_all
 Booking.destroy_all
@@ -46,6 +46,8 @@ puts "Destroy all birds"
   url_id = Random.rand(10..40)
   user_email = Faker::Internet.email(domain: 'gmail.com')
   user_password = Faker::Internet.password(min_length: 8)
+  picture_url = "https://source.unsplash.com/random/?bird/sig=#{url_id}/orientation=landscape"
+  picture = URI.open(picture_url)
 
 
 
@@ -68,6 +70,8 @@ puts "Destroy all birds"
     price: rand(10..40).to_i
   )
   bird.user = user
+  bird.picture.attach(io: picture, filename: "pic/#{url_id}", content_type: "image/png")
+  puts "#{bird.picture.attached?}"
   bird.save!
   puts "#{bird.name} created !"
 end
