@@ -1,0 +1,13 @@
+*, *:before, *:after {
+  box-sizing:border-box;
+}
+
+.mapboxgl-popup-tip {
+  border-top-color: rgba(255,255,255,.6) !important;
+}
+
+.mapboxgl-popup-content {
+  background: rgba(255,255,255,.4) !important;
+  backdrop-filter: blur(20px);
+  border: 1px solid rgb(134, 134, 134);
+}
