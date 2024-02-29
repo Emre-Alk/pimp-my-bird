@@ -1,7 +1,9 @@
-
-
 <div class="container">
-  <h1><%= @bird.name %></h1>
+
+  <div class="row">
+    <h1><%= @bird.name %></h1>
+  </div>
+
   <div class="row">
     <div class="col">
       <div class="card" style="width: 600px">
@@ -14,7 +16,6 @@
         </div>
       </div>
     </div>
-
     <div class="col">
       <div>
         <%= render "bookings/formBooking", bird: @bird, booking: @booking %>
@@ -23,6 +24,9 @@
         data-controller="map"
         data-map-markers-value="<%= @marker.to_json %>"
         data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+    <div class="d-flex flex-column bookform">
+      <%= render "bookings/formBooking", bird: @bird, booking: @booking %>
     </div>
+
   </div>
 </div>
