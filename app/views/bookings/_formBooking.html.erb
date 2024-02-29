@@ -1,13 +1,15 @@
-<div class="container">
-  <h1>Book a bird</h1>
-  <%= simple_form_for [@bird, @booking] do |f|%>
-    <%= f.input :start_date,
-                as: :string,
-                input_html: { data: { controller: "datepicker" } } %>
-    <%= f.input :end_date,
-                as: :string,
-                input_html: { data: { controller: "datepicker" } } %>
-    <%= f.submit %>
+<h1>Book a bird</h1>
 
-  <% end %>
+<%= simple_form_for [@bird, @booking] do |f|%>
+<div class="d-flex flex-row inputs">
+  <%= f.input :start_date,
+              as: :string,
+              input_html: { data: { controller: "datepicker" } } %>
+  <%= f.input :end_date,
+              as: :string,
+              input_html: { data: { controller: "datepicker" } } %>
 </div>
+
+
+<%= f.submit class: 'btn btn-dark button' %>
+<% end %>
