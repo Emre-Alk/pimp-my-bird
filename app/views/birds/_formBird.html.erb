@@ -1,15 +1,20 @@
 <div class="container container-bird" style="margin-top: 50px;">
-  <h1 class="stylized">Add your Bird</h1>
-  <p class="bird-information">Feel free to give information about your Bird</p>
-  <div class="row align-items-start">
-    <%= simple_form_for(@bird) do |f| %>
-      <%= f.input :name, label: "🔤 Name" %>,
-      <%= f.input :chant_url, label: "🎶 Chant Url" %>,
-      <%= f.input :common_family, label: "🐦 Common Family" %>
-      <%= f.input :geography, label: "🌍 Geography" %>
-      <%= f.input :price, label: "💶 Price (per day)" %>
-      <%= f.input :picture as: :file %>
-      <%= f.submit "Add a bird", class:"btn btn-outline-dark" %>
-    <% end %>
+  <div class="row align-items-start justify-content-center">
+    <div class="col-auto birdform w-5">
+      <h1 class="stylized">Add your Bird</h1>
+      <p class="bird-information">Feel free to give information about your Bird</p>
+      <%= simple_form_for(@bird) do |f| %>
+        <%= f.input :name, label: "🔤 Name" %>
+        <%= f.input :chant_url, label: "🎶 Chant Url" %>
+        <%= f.input :common_family, label: "🐦 Common Family" %>
+        <%= f.input :geography, label: "🌍 Geography" %>
+        <%= f.input :price, label: "💶 Price (per day)" %>
+        <%= f.input :picture, as: :file %>
+
+        <%= f.submit "Add a bird", class:"btn btn-outline-dark w-100 mt-2" %>
+
+
+      <% end %>
+    </div>
   </div>
 </div>
