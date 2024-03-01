@@ -40,6 +40,7 @@ address = [
 ]
 
 puts "Destroy all birds"
+
 20.times do
   faker_bird = Faker::Creature::Bird
   first_name = Faker::Name.first_name
