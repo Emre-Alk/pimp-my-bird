@@ -46,7 +46,11 @@ puts "Destroy all birds"
   url_id = Random.rand(10..40)
   user_email = Faker::Internet.email(domain: 'gmail.com')
   user_password = Faker::Internet.password(min_length: 8)
-  picture_url = "https://source.unsplash.com/random/?bird/sig=#{url_id}/orientation=landscape"
+  if Rails.env.production?
+    picture_url = "https://source.unsplash.com/random/?bird/sig=#{url_id}/orientation=landscape"
+  else
+    picture_url = "https://res.cloudinary.com/dnnoyjw9r/image/upload/v1709219056/development/w86488ztyx76exe4tjvkzy66o9v1.jpg"
+  end
   picture = URI.open(picture_url)
 
 
