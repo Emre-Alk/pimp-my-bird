@@ -9,11 +9,11 @@
         <%# <img style="height: 400px; object-fit: cover;"  src="https://source.unsplash.com/random/?bird/" alt="bird"> %>
         <div class="card-body">
           <iframe class="iframe" src=<%= @bird.chant_url %> scrolling='no' frameborder='0' width="400"></iframe>
-          <h3>🐦Family: <%= @bird.common_family %></h3>
+          <h3>🐦<%= @bird.common_family %></h3>
 
-          <h3>🌍Origin: <%= @bird.geography %></h3>
+          <h3>🌍<%= @bird.geography %></h3>
 
-          <h3>💶Price: <%= @bird.price %> €</h3>
+          <h3>💶<%= @bird.price %> €</h3>
 
         </div>
       </div>
