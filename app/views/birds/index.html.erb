@@ -5,7 +5,7 @@
       <% @birds.each do |bird| %>
       <div class="col">
         <div class="card card-bottom" style="width: 18rem;">
-          <% if @bird.picture.attached? %>
+          <% if bird.picture.attached? %>
             <%= cl_image_tag bird.picture.key, width: 286, height: 200, crop: :auto, gravity: :auto %>
           <% end %>
           <div class="card-body">

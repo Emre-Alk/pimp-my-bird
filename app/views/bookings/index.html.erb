@@ -3,7 +3,7 @@
   <%@bookings.each do |booking| %>
   <%= link_to bird_path(booking.bird), style:"text-decoration: none; color: black;" do %>
     <div class="card-product">
-    <% if @bird.picture.attached? %>
+    <% if booking.bird.picture.attached? %>
       <%= cl_image_tag booking.bird.picture.key, crop: :fit, gravity: :center %>
     <% end %>
       <div class="card-product-infos">
