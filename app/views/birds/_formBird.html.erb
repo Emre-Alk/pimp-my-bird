@@ -8,6 +8,7 @@
       <%= f.input :common_family, label: "🐦 Common Family" %>
       <%= f.input :geography, label: "🌍 Geography" %>
       <%= f.input :price, label: "💶 Price (per day)" %>
+      <%= f.input :picture as: :file %>
       <%= f.submit "Add a bird", class:"btn btn-outline-dark" %>
     <% end %>
   </div>
