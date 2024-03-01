@@ -6,7 +6,6 @@
         <div style="background: #051937; background: -webkit-linear-gradient( to right bottom, #051937, #011432, #000f2d, #000728,#000000); background: linear-gradient(to to right bottom, #051937, #011432, #000f2d, #000728,#000000);">
           <%= cl_image_tag @bird.picture.key, :crop=>"fill", :gravity=>"auto", style:"height: 400px; width:100%; object-fit: scale-down; object-position: center;" %>
         </div>
-        <%# <img style="height: 400px; object-fit: cover;"  src="https://source.unsplash.com/random/?bird/" alt="bird"> %>
         <div class="card-body">
           <iframe class="iframe" src=<%= @bird.chant_url %> scrolling='no' frameborder='0' width="400"></iframe>
           <h3>🐦Family: <%= @bird.common_family %></h3>
