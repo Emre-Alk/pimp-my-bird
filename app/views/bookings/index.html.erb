@@ -1,12 +1,15 @@
 <div class="container">
   <h1>Bookings</h1>
   <%@bookings.each do |booking| %>
+  <%= link_to bird_path(booking.bird), style:"text-decoration: none; color: black;" do %>
     <div class="card-product">
-    <%= cl_image_tag booking.bird.picture.key, crop: :fit, gravity: :center %>
-    <div class="card-product-infos">
-      <h2><%= link_to booking.bird.name, bird_path(booking.bird) %></h2>
-      From <span> <%= booking.start_date %> </span> to <span> <%= booking.end_date %> </span>
-    </div>
+      <%= cl_image_tag booking.bird.picture.key, crop: :fit, gravity: :center %>
+      <div class="card-product-infos">
+        <h2><%= booking.bird.name %></h2>
+        From <span> <%= booking.start_date %> </span> to <span> <%= booking.end_date %> </span>
+        <h2 class="font-weight-bold"><%= (booking.end_date - booking.start_date).to_i * booking.bird.price %> €</h2>
+      </div>
   </div>
+  <% end %>
   <% end %>
 </div>
