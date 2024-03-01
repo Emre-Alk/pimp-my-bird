@@ -43,17 +43,15 @@ puts "Destroy all birds"
 20.times do
   faker_bird = Faker::Creature::Bird
   first_name = Faker::Name.first_name
-  url_id = Random.rand(10..40)
+  url_id = 1
   user_email = Faker::Internet.email(domain: 'gmail.com')
   user_password = Faker::Internet.password(min_length: 8)
   if Rails.env.production?
-    picture_url = "https://source.unsplash.com/random/?bird/sig=#{url_id}/orientation=landscape"
+    picture_url = "https://res.cloudinary.com/dnnoyjw9r/image/upload/v1709290819/development/#{url_id}.jpg"
   else
     picture_url = "https://res.cloudinary.com/dnnoyjw9r/image/upload/v1709219056/development/w86488ztyx76exe4tjvkzy66o9v1.jpg"
   end
   picture = URI.open(picture_url)
-
-
 
   user_address = address[0]
   address.slice!(0)
@@ -73,8 +71,10 @@ puts "Destroy all birds"
     rating: rand(3.0..5.0).round(1),
     price: rand(10..40).to_i
   )
+
   bird.user = user
   bird.picture.attach(io: picture, filename: "pic/#{url_id}", content_type: "image/png")
+  url_id += 1
   puts "#{bird.picture.attached?}"
   bird.save!
   puts "#{bird.name} created !"
